@@ -15,16 +15,16 @@ var wins = 0;
 
 var losses = 0;
 
-// // Word Generator
-// var randColor = colors[Math.floor(Math.random() * (colors.length))];
+// Word Generator
+var randColor = colors[Math.floor(Math.random() * (colors.length))];
 
-// // Split generated word into own array
-// var computerWord = randColor.split("");
+// Split generated word into own array
+var computerWord = randColor.split("");
 
-// // push empty space into correctWord to match array length of generated word
-// for (var i = 0; i < computerWord.length; i++) {
-//     correctWord.push(" ");
-// }
+// push empty space into correctWord to match array length of generated word
+for (var i = 0; i < computerWord.length; i++) {
+    correctWord.push(" ");
+}
 
 document.onkeydown = key;
 
@@ -40,16 +40,16 @@ function key() {
 
 
             // Word Generator
-var randColor = colors[Math.floor(Math.random() * (colors.length))];
+            var randColor = colors[Math.floor(Math.random() * (colors.length))];
 
-// Split generated word into own array
-var computerWord = randColor.split("");
+            // Split generated word into own array
+            var computerWord = randColor.split("");
 
-// push empty space into correctWord to match array length of generated word
-for (var i = 0; i < computerWord.length; i++) {
-    correctWord.push(" ");
-    computerGenerate.push(computerWord[i]);
-}
+            // push empty space into correctWord to match array length of generated word
+            for (var i = 0; i < computerWord.length; i++) {
+                correctWord.push("_");
+                computerGenerate.push(computerWord[i]);
+            }
 
 
         }
@@ -81,7 +81,7 @@ for (var i = 0; i < computerWord.length; i++) {
 
         var compareNew = computerGenerate.join("");
 
-        if (compareNew === correctWord) {
+        if (compareNew === compare) {
             guessLeft = 10;
 
             wins++;
@@ -89,6 +89,8 @@ for (var i = 0; i < computerWord.length; i++) {
             wrongLetters.splice(0, wrongLetters.length);
 
             correctWord.splice(0, correctWord.length);
+
+            computerGenerate.splice(0, computerGenerate.length);
 
         }
 
