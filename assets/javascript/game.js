@@ -7,22 +7,24 @@ var correctWord = [];
 
 var wrongLetters = [];
 
+var computerGenerate = [];
+
 var guessLeft = 10;
 
 var wins = 0;
 
 var losses = 0;
 
-// Word Generator
-var randColor = colors[Math.floor(Math.random() * (colors.length))];
+// // Word Generator
+// var randColor = colors[Math.floor(Math.random() * (colors.length))];
 
-// Split generated word into own array
-var computerWord = randColor.split("");
+// // Split generated word into own array
+// var computerWord = randColor.split("");
 
-// push empty space into correctWord to match array length of generated word
-for (var i = 0; i < computerWord.length; i++) {
-    correctWord.push(" ");
-}
+// // push empty space into correctWord to match array length of generated word
+// for (var i = 0; i < computerWord.length; i++) {
+//     correctWord.push(" ");
+// }
 
 document.onkeydown = key;
 
@@ -31,16 +33,37 @@ function key() {
 
     if (letter.includes(event.key)) {
 
+
+        var compare = correctWord.join("")
+
+        if (compare === "") {
+
+
+            // Word Generator
+var randColor = colors[Math.floor(Math.random() * (colors.length))];
+
+// Split generated word into own array
+var computerWord = randColor.split("");
+
+// push empty space into correctWord to match array length of generated word
+for (var i = 0; i < computerWord.length; i++) {
+    correctWord.push(" ");
+    computerGenerate.push(computerWord[i]);
+}
+
+
+        }
+
         // user letter input
         var userLetter = event.key;
 
 
         // Find index of userletter in generated word
-        var correctIndex = computerWord.indexOf(userLetter);
+        var correctIndex = computerGenerate.indexOf(userLetter);
 
 
         // Splice letter into correctWord array or into the wrong letter array
-        if (computerWord.includes(userLetter)) {
+        if (computerGenerate.includes(userLetter)) {
 
             correctWord.splice(correctIndex, 1, userLetter);
 
@@ -56,9 +79,9 @@ function key() {
             correctWord.splice(0, correctWord.length);
         }
 
-        var compare = correctWord.join("");
+        var compareNew = computerGenerate.join("");
 
-        if (compare === randColor) {
+        if (compareNew === correctWord) {
             guessLeft = 10;
 
             wins++;
