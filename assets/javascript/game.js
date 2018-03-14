@@ -66,6 +66,7 @@ function key() {
             losses++;
             wrongLetters.splice(0, wrongLetters.length);
             correctWord.splice(0, correctWord.length);
+            computerGenerate.splice(0, computerGenerate.length);
         }
 
         var compareNew = computerGenerate.join("");
