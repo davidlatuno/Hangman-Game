@@ -15,17 +15,6 @@ var wins = 0;
 
 var losses = 0;
 
-// Word Generator
-var randColor = colors[Math.floor(Math.random() * (colors.length))];
-
-// Split generated word into own array
-var computerWord = randColor.split("");
-
-// push empty space into correctWord to match array length of generated word
-for (var i = 0; i < computerWord.length; i++) {
-    correctWord.push(" ");
-}
-
 document.onkeydown = key;
 
 
@@ -91,6 +80,7 @@ function key() {
             correctWord.splice(0, correctWord.length);
 
             computerGenerate.splice(0, computerGenerate.length);
+
 
         }
 
