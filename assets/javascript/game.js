@@ -1,6 +1,6 @@
 var letter = "abcdefghijklmnopqrstuvwxyz";
 
-var colors = ["red", "blue", "yellow"];
+var colors = ["red", "blue", "black"];
 
 
 var correctWord = [];
@@ -24,21 +24,12 @@ for (var i = 0; i < computerWord.length; i++) {
     correctWord.push(" ");
 }
 
-document.onkeyup = key;
-
+document.onkeydown = key;
 
 
 function key() {
 
-    var start = true;
-
     if (letter.includes(event.key)) {
-
-
-        
-
-        console.log('hi');
-
 
         // user letter input
         var userLetter = event.key;
@@ -61,8 +52,24 @@ function key() {
         if (guessLeft === 0) {
             guessLeft += 10;
             losses++;
+            wrongLetters.splice(0, wrongLetters.length);
+            correctWord.splice(0, correctWord.length);
         }
 
+        var compare = correctWord.join("");
+
+        if (compare === randColor) {
+            guessLeft = 10;
+
+            wins++;
+
+            wrongLetters.splice(0, wrongLetters.length);
+
+            correctWord.splice(0, correctWord.length);
+
+        }
+
+        document.getElementById("win").innerHTML = wins;
         document.getElementById("lose").innerHTML = losses;
         document.getElementById("guessLeft").innerHTML = guessLeft;
         document.getElementById("lettersGuessed").innerHTML = wrongLetters;
