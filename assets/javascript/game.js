@@ -65,11 +65,6 @@ function key() {
             return;
         }
 
-
-        var compare = correctWord.join("")
-
-        var compareNew = computerGenerate.join("");
-
         // user letter input
         var userLetter = event.key;
 
@@ -102,8 +97,6 @@ function key() {
 
             wordGenerate();
         }
-
-        var compareNew = computerGenerate.join("");
 
 
         updateStats();
