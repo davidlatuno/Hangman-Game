@@ -2,3 +2,21 @@
 
     font-size: 30px;
 }
+
+.row {
+
+    margin: 0 auto;
+}
+
+.wins {
+
+    color: forestgreen;
+}
+
+.lose {
+    color: crimson;
+}
+
+.guess {
+    color: #CCCC00;
+}

@@ -129,6 +129,8 @@ function win() {
 
         updateStats();
 
+        alert("YOU WIN!");
+
 
     }
 
