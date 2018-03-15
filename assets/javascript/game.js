@@ -39,7 +39,7 @@ function updateStats() {
     document.getElementById("win").innerHTML = wins;
     document.getElementById("lose").innerHTML = losses;
     document.getElementById("guessLeft").innerHTML = guessLeft;
-    document.getElementById("lettersGuessed").innerHTML = wrongLetters;
+    document.getElementById("lettersGuessed").innerHTML = wrongLetters.join(" ");
     document.getElementById("computerWord").innerHTML = correctWord.join(" ");
 
 }
@@ -50,13 +50,17 @@ updateStats();
 
 document.onkeydown = key;
 
+document.onkeyup = win;
+
 
 function key() {
 
+    // Only alphabet keys
     if (letter.includes(event.key)) {
 
         var halt = wrongLetters.includes(event.key);
 
+        // Prevent multiple entries
         if (halt) {
             return;
         }
@@ -64,11 +68,7 @@ function key() {
 
         var compare = correctWord.join("")
 
-        if (compare === "") {
-
-            wordGenerate();
-
-        }
+        var compareNew = computerGenerate.join("");
 
         // user letter input
         var userLetter = event.key;
@@ -83,36 +83,60 @@ function key() {
 
             correctWord.splice(correctIndex, 1, userLetter);
 
+            console.log();
+            console.log();
+
         } else {
             wrongLetters.push(userLetter);
             guessLeft--;
         }
 
+
+        // Reset if Guess = 0
         if (guessLeft === 0) {
             guessLeft += 10;
             losses++;
             wrongLetters.splice(0, wrongLetters.length);
             correctWord.splice(0, correctWord.length);
             computerGenerate.splice(0, computerGenerate.length);
+
+            wordGenerate();
         }
 
         var compareNew = computerGenerate.join("");
 
 
-        if (compareNew === compare) {
-            guessLeft = 10;
-            wins++;
+        updateStats();
+    }
 
-            wrongLetters.splice(0, wrongLetters.length);
+}
 
-            correctWord.splice(0, correctWord.length);
+function win() {
 
-            computerGenerate.splice(0, computerGenerate.length);
+    var compare = correctWord.join("")
+
+    var compareNew = computerGenerate.join("");
 
 
-        }
+    // Reset if Win
+    if (compareNew === compare) {
+
+        guessLeft = 10;
+
+        wins++;
+
+
+        wrongLetters.splice(0, wrongLetters.length);
+
+        correctWord.splice(0, correctWord.length);
+
+        computerGenerate.splice(0, computerGenerate.length);
+
+        wordGenerate();
 
         updateStats();
+
+
     }
 
 }
