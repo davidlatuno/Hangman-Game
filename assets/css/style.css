@@ -1,3 +1,7 @@
+body {
+    background: url(../images/retina_wood/retina_wood.png);
+}
+
 .panel-body {
 
     font-size: 30px;
@@ -19,4 +23,12 @@
 
 .guess {
     color: #CCCC00;
+}
+
+.jumbotron {
+    background: #966F33 !important;
+}
+
+p {
+    font-weight: bold !important;
 }
