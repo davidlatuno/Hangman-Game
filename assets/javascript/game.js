@@ -1,6 +1,6 @@
 var letter = "abcdefghijklmnopqrstuvwxyz";
 
-var colors = ["yellow"];
+var state = ["alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "new_hampshire", "new_jersey", "new_mexico", "new_york", "north_carolina", "north_dakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode_island", "south_carolina", "south_dakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "west_virginia", "wisconsin", "wyoming"];
 
 
 var correctWord = [];
@@ -19,10 +19,10 @@ var losses = 0;
 function wordGenerate() {
 
     // Word Generator
-    var randColor = colors[Math.floor(Math.random() * (colors.length))];
+    var randState = state[Math.floor(Math.random() * (state.length))];
 
     // Split generated word into own array
-    var computerWord = randColor.split("");
+    var computerWord = randState.split("");
 
     // push empty space into correctWord to match array length of generated word
     for (var i = 0; i < computerWord.length; i++) {
