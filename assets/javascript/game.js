@@ -104,7 +104,7 @@ function key() {
 
             var compareNew = computerGenerate.join("");
 
-            alert("So Close! The word was: " + compareNew);
+            alert("So Close! The word was: " + compareNew.toUpperCase());
 
 
 
