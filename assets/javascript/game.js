@@ -49,9 +49,6 @@ function wordGenerate() {
 }
 
 
-}
-
-
 function updateStats() {
 
     document.getElementById("win").innerHTML = wins;
