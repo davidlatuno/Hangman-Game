@@ -16,6 +16,8 @@ var wins = 0;
 var losses = 0;
 
 
+
+// function linked to forEach method of accepting strings with multiple words
 function handleSpace(x, y) {
 
     if (x === " ") {
@@ -44,6 +46,7 @@ function wordGenerate() {
 
         computerGenerate.forEach(handleSpace);
     }
+}
 
 
 }
