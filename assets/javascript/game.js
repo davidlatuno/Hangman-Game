@@ -1,6 +1,6 @@
 var letter = "abcdefghijklmnopqrstuvwxyz";
 
-var state = ["alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "new_hampshire", "new_jersey", "new_mexico", "new_york", "north_carolina", "north_dakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode_island", "south_carolina", "south_dakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "west_virginia", "wisconsin", "wyoming"];
+var state = ["alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey", "new mexico", "new york", "north carolina", "north dakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina", "south dakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming"];
 
 
 var correctWord = [];
@@ -16,6 +16,16 @@ var wins = 0;
 var losses = 0;
 
 
+function handleSpace(x, y) {
+
+    if (x === " ") {
+
+        correctWord.splice(y, 1, " ");
+    }
+
+}
+
+
 function wordGenerate() {
 
     // Word Generator
@@ -28,6 +38,11 @@ function wordGenerate() {
     for (var i = 0; i < computerWord.length; i++) {
         correctWord.push("_");
         computerGenerate.push(computerWord[i]);
+    }
+
+    if (computerGenerate.includes(" ")) {
+
+        computerGenerate.forEach(handleSpace);
     }
 
 
