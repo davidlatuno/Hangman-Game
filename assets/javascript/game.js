@@ -1,6 +1,6 @@
 var letter = "abcdefghijklmnopqrstuvwxyz";
 
-var colors = ["red", "blue", "black", "pink", "white"];
+var colors = ["yellow"];
 
 
 var correctWord = [];
@@ -55,6 +55,16 @@ document.onkeyup = win;
 
 function key() {
 
+    // Linked to forEach method to handle words with multiple letters
+    function handleUser(x, y) {
+
+        if (userLetter === x) {
+
+            correctWord.splice(y, 1, userLetter);
+        }
+
+    }
+
     // Only alphabet keys
     if (letter.includes(event.key)) {
 
@@ -68,20 +78,13 @@ function key() {
         // user letter input
         var userLetter = event.key;
 
-
-        // Find index of userletter in generated word
-        var correctIndex = computerGenerate.indexOf(userLetter);
-
-
-        // Splice letter into correctWord array or into the wrong letter array
+        // Handle user input to run forEach function if user letter is included in generated word or to be pushed to wrong letters
         if (computerGenerate.includes(userLetter)) {
 
-            correctWord.splice(correctIndex, 1, userLetter);
-
-            console.log();
-            console.log();
+            computerGenerate.forEach(handleUser);
 
         } else {
+
             wrongLetters.push(userLetter);
             guessLeft--;
         }
