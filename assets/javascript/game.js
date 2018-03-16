@@ -55,6 +55,8 @@ document.onkeyup = win;
 
 function key() {
 
+    var loseAnswer = computerGenerate.join('');
+
     // Linked to forEach method to handle words with multiple letters
     function handleUser(x, y) {
 
@@ -101,6 +103,8 @@ function key() {
             updateStats();
 
             wordGenerate();
+
+            alert("So Close! The correct word was: " + loseAnswer.toUpperCase());
 
         }
 
