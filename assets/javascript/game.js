@@ -98,15 +98,9 @@ function key() {
             correctWord.splice(0, correctWord.length);
             computerGenerate.splice(0, computerGenerate.length);
 
-            wordGenerate();
-
             updateStats();
 
-            var compareNew = computerGenerate.join("");
-
-            alert("So Close! The word was: " + compareNew.toUpperCase());
-
-
+            wordGenerate();
 
         }
 
