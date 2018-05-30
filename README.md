@@ -1,5 +1,5 @@
 # Hangman-Game
-Classic hangman game made with vanilla JavaScript, HTML, and CSS
+Classic hangman game made with vanilla JavaScript, HTML, CSS, and Bootstrap
 
 Url Link: https://davidlatuno.github.io/Hangman-Game/
 
